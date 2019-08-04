@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Absolute path" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="it.fmenza.pdfmetadatacleaner.PDFMetadataCleaner" />
+    <module name="PDF Metadata Cleaner" />
+    <option name="PROGRAM_PARAMETERS" value="R:\doc.pdf" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

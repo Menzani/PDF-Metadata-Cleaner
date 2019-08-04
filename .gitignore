@@ -1,0 +1,9 @@
+.idea/$CACHE_FILE$
+.idea/$PRODUCT_WORKSPACE_FILE$
+.idea/dictionaries
+.idea/misc.xml
+.idea/vcs.xml
+.idea/workspace.xml
+out/
+
+lib/
