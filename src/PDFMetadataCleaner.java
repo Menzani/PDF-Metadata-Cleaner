@@ -25,29 +25,33 @@ public class PDFMetadataCleaner {
         LogFactory.getFactory().setAttribute("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.SimpleLog");
         System.setProperty("org.apache.commons.logging.simplelog.defaultlog", "trace");
 
-        try (PDDocument document = PDDocument.load(file, password)) {
-            COSDictionary documentInformation = document.getDocumentInformation().getCOSObject();
-            if (documentInformation.size() == 0) {
-                System.out.println("The PDF file is already clean: \"" + file.getAbsolutePath() + '"');
-                System.exit(1);
-            }
-            documentInformation.clear();
-            try {
-                document.save(file);
-            } catch (IOException e) {
-                System.err.println("Could not overwrite the PDF file: " + e.getMessage());
-                System.exit(4);
-            }
+        PDDocument document;
+        try {
+            document = PDDocument.load(file, password);
         } catch (InvalidPasswordException e) {
-            if (password.isEmpty()) {
+            if (args.length == 1) {
                 System.err.println("The PDF document requires a password.");
             } else {
                 System.err.println("The PDF document password provided is incorrect.");
             }
             System.exit(3);
+            return;
         } catch (IOException e) {
             System.err.println("Could not read or parse the PDF file: " + e.getMessage());
             System.exit(2);
+            return;
+        }
+        COSDictionary documentInformation = document.getDocumentInformation().getCOSObject();
+        if (documentInformation.size() == 0) {
+            System.out.println("The PDF file is already clean: \"" + file.getAbsolutePath() + '"');
+            System.exit(1);
+        }
+        documentInformation.clear();
+        try {
+            document.save(file);
+        } catch (IOException e) {
+            System.err.println("Could not overwrite the PDF file: " + e.getMessage());
+            System.exit(4);
         }
         System.out.println("Cleaned the PDF file: \"" + file.getAbsolutePath() + '"');
     }
