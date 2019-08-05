@@ -43,7 +43,7 @@ public class PDFMetadataCleaner {
         }
         COSDictionary documentInformation = document.getDocumentInformation().getCOSObject();
         if (documentInformation.size() == 0) {
-            System.out.println("The PDF file is already clean: \"" + file.getAbsolutePath() + '"');
+            System.out.println("The PDF file is already clean: \"" + tryGetCanonicalPath(file) + '"');
             System.exit(1);
         }
         documentInformation.clear();
@@ -53,6 +53,14 @@ public class PDFMetadataCleaner {
             System.err.println("Could not overwrite the PDF file: " + e.getMessage());
             System.exit(4);
         }
-        System.out.println("Cleaned the PDF file: \"" + file.getAbsolutePath() + '"');
+        System.out.println("Cleaned the PDF file: \"" + tryGetCanonicalPath(file) + '"');
+    }
+
+    private static String tryGetCanonicalPath(File file) {
+        try {
+            return file.getCanonicalPath();
+        } catch (IOException e) {
+            return file.getAbsolutePath();
+        }
     }
 }
