@@ -1,8 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Relative path" type="Application" factoryName="Application">
-    <option name="ALTERNATIVE_JRE_PATH" value="12" />
-    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-    <option name="MAIN_CLASS_NAME" value="it.fmenza.pdfmetadatacleaner.PDFMetadataCleaner" />
+    <option name="MAIN_CLASS_NAME" value="eu.menzani.pdfmetadatacleaner.PDFMetadataCleaner" />
     <module name="PDF Metadata Cleaner" />
     <option name="PROGRAM_PARAMETERS" value="doc.pdf" />
     <option name="VM_PARAMETERS" value="-Xms16m -Xmx16m -XX:-UsePerfData -Xint -XX:+UnlockExperimentalVMOptions -XX:+UseEpsilonGC" />

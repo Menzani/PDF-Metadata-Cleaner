@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="org.apache.pdfbox:pdfbox:2.0.16" type="repository">
+  <library name="PDFBox" type="repository">
     <properties maven-id="org.apache.pdfbox:pdfbox:2.0.16" />
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/lib/PDFBox/pdfbox-2.0.16.jar!/" />

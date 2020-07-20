@@ -1,4 +1,4 @@
-package it.fmenza.pdfmetadatacleaner;
+package eu.menzani.pdfmetadatacleaner;
 
 import org.apache.commons.logging.LogFactory;
 import org.apache.pdfbox.cos.COSDictionary;
